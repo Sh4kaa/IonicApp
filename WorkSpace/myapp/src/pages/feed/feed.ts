@@ -20,7 +20,7 @@ export class FeedPage {
   }
 
   public somaDoisNumeros():void{
-    alert(5+15);
+    alert("minha função");
   }
 
   ionViewDidLoad() {
