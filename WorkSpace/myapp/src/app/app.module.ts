@@ -17,20 +17,22 @@ import { IntroPageModule } from '../pages/intro/intro.module';
 
 
 
+
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
-    IntroPageModule
+    TabsPage
+    
   
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    FeedPageModule
+    FeedPageModule,
+    IntroPageModule
     
     ],
   bootstrap: [IonicApp],
