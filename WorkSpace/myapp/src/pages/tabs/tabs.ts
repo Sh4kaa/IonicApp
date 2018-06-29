@@ -11,9 +11,9 @@ import { AboutPage } from '../about/about';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = FeedPage;
+  tab4Root = FeedPage;
   tab3Root = ContactPage;
-  tab4Root = AboutPage;
+  tab2Root = AboutPage;
 
   constructor() {
 
