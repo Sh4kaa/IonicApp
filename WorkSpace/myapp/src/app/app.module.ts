@@ -11,6 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FeedPageModule } from '../pages/feed/feed.module';
+import { IntroPageModule } from '../pages/intro/intro.module';
 
 
 
@@ -22,7 +23,8 @@ import { FeedPageModule } from '../pages/feed/feed.module';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    IntroPageModule
   
   ],
   imports: [
@@ -30,8 +32,7 @@ import { FeedPageModule } from '../pages/feed/feed.module';
     IonicModule.forRoot(MyApp),
     FeedPageModule
     
-    
-  ],
+    ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
