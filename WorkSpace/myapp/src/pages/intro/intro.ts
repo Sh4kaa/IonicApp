@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
 
 /**
  * Generated class for the IntroPage page.
@@ -14,12 +15,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'intro.html',
 })
 export class IntroPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  /* toda vez que eu this. estou chamando alguma função
+   da intropage  depois se eu colocar ponto dinovo estou chamando as propriedades dessa funçaõ */
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IntroPage');
+  }
+  goToTabsPage() { // quando não especifico se é public ou não ele ja´entende como public, agora é public no html
+    this.navCtrl.push(TabsPage)
   }
 
 }
