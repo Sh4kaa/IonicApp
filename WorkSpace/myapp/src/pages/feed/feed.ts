@@ -46,8 +46,10 @@ export class FeedPage {
     this.movieProvider.getLatestMovies().subscribe(
       data => {
         console.log(data);
-
+      }, error => {
+        console.log(error);
       }
+      
     )
   }
 
