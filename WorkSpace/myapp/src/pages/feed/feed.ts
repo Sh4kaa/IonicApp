@@ -44,7 +44,7 @@ export class FeedPage {
 
   ionViewDidLoad() {
     this.movieProvider.getLatestMovies().subscribe(
-      data => {
+      data=> {
         console.log(data);
       }, error => {
         console.log(error);
