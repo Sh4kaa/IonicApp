@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+
 
 /*
   Generated class for the MoovieProvider provider.
@@ -16,7 +16,7 @@ export class MoovieProvider {
     console.log('Hello MoovieProvider Provider');
   }
   getLatestMovies() {
-    return this.http.get(this.baseApiPath + "/movie/latest");
+    return this.http.get(this.baseApiPath + "/movie/latest/550?api_key=17bdc4010e227c1eebd421e14d233524");
   }
 
 }
