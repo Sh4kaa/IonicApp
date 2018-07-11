@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
+import { Http } from '@angular/http';
 
 
 /*
@@ -12,11 +13,11 @@ import { Injectable } from '@angular/core';
 export class MoovieProvider {
   private baseApiPath = "https://api.themoviedb.org/3";
 
-  constructor(public http: HttpClient) {
+  constructor(public http: Http) {
     console.log('Hello MoovieProvider Provider');
   }
   getLatestMovies() {
-    return this.http.get(this.baseApiPath + "/movie/popular?api_key=17bdc4010e227c1eebd421e14d233524");
+    return this.http.get( this.baseApiPath + "/movie/popular?api_key=17bdc4010e227c1eebd421e14d233524");
   }
 
 }
