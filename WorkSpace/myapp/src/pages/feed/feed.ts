@@ -26,6 +26,7 @@ export class FeedPage {
     coments: 4,
     time_comment: "11h ago"
   }
+  public lista_filmes = new Array<any>(); // objeto do tipo javascript
 
 
   public nome_usuario: string = "dario franca do código";
@@ -46,7 +47,8 @@ export class FeedPage {
     this.movieProvider.getLatestMovies().subscribe(
       data=> {
         const response = (data as any)
-        const objeto_retorno = JSON.parse(response._body)
+        const objeto_retorno = JSON.parse(response._body) // body retorna page
+        this.lista_filmes = objeto_retorno.results // já faz com que seja carregada a lista de filmes, pq results na documentação é a lista de filmes no json
         console.log(objeto_retorno);
       }, error => {
         console.log(error);
