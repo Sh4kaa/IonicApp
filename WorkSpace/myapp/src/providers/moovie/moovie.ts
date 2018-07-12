@@ -17,7 +17,7 @@ export class MoovieProvider {
     console.log('Hello MoovieProvider Provider');
   }
   getLatestMovies() {
-    return this.http.get( this.baseApiPath + "/movie/popular?api_key=17bdc4010e227c1eebd421e14d233524");
+    return this.http.get( this.baseApiPath + "/movie/now_playing?api_key=17bdc4010e227c1eebd421e14d233524");
   }
 
 }
