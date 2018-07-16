@@ -31,7 +31,8 @@ import { FeedPage } from '../pages/feed/feed';
     ContactPage,
     HomePage,
     TabsPage,
-    FeedPageModule
+    FeedPageModule,
+    FeedPage
     
   
   ],
@@ -39,7 +40,8 @@ import { FeedPage } from '../pages/feed/feed';
     BrowserModule,
     IonicModule.forRoot(MyApp),    
     IntroPageModule,
-    HttpModule
+    HttpModule,
+    FeedPage
     
     
     
@@ -51,8 +53,8 @@ import { FeedPage } from '../pages/feed/feed';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
-    FeedPage
+    TabsPage
+    
   ],
   providers: [
     StatusBar,
