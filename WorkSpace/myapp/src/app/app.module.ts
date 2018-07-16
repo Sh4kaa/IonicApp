@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FeedPageModule } from '../pages/feed/feed.module';
 import { IntroPageModule } from '../pages/intro/intro.module';
 import { MoovieProvider } from '../providers/moovie/moovie';
+import { FeedPage } from '../pages/feed/feed';
 
 
 
@@ -29,17 +30,16 @@ import { MoovieProvider } from '../providers/moovie/moovie';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    FeedPageModule
     
   
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    FeedPageModule,
+    IonicModule.forRoot(MyApp),    
     IntroPageModule,
     HttpModule
-    
     
     
     
@@ -51,7 +51,8 @@ import { MoovieProvider } from '../providers/moovie/moovie';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    FeedPage
   ],
   providers: [
     StatusBar,
