@@ -25,33 +25,35 @@ import { FeedPage } from '../pages/feed/feed';
 
 
 @NgModule({
-  declarations: [
+  declarations: [ // toda página criada se não tiver o modulo é necessario estar listada aqui
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
     TabsPage,
-    FeedPage
+    
       
     
   
   ],
-  imports: [
+  imports: [ // necessario listar os módulos aqui
     BrowserModule,
     IonicModule.forRoot(MyApp),    
     IntroPageModule,
-    HttpModule  
+    HttpModule ,
+    FeedPageModule
             
     
     ],
-  bootstrap: [IonicApp],
+  bootstrap: [IonicApp], // toda página criada se não tiver o modulo é necessario estar listada aqui
   entryComponents: [
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
     TabsPage,
-    FeedPage
+    
+    
     
   ],
   providers: [
