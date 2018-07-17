@@ -31,8 +31,8 @@ import { FeedPage } from '../pages/feed/feed';
     ContactPage,
     HomePage,
     TabsPage,
-    FeedPageModule,
     FeedPage
+      
     
   
   ],
@@ -40,11 +40,8 @@ import { FeedPage } from '../pages/feed/feed';
     BrowserModule,
     IonicModule.forRoot(MyApp),    
     IntroPageModule,
-    HttpModule,
-    FeedPage
-    
-    
-    
+    HttpModule  
+            
     
     ],
   bootstrap: [IonicApp],
@@ -53,7 +50,8 @@ import { FeedPage } from '../pages/feed/feed';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    FeedPage
     
   ],
   providers: [
