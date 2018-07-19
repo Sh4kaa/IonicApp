@@ -14,7 +14,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FeedPageModule } from '../pages/feed/feed.module';
 import { IntroPageModule } from '../pages/intro/intro.module';
 import { MoovieProvider } from '../providers/moovie/moovie';
-import { FeedPage } from '../pages/feed/feed';
+import { SobrePageModule } from '../pages/sobre/sobre.module';
+import { PerfilPageModule } from '../pages/perfil/perfil.module';
+import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
+import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
+
 
 
 
@@ -26,32 +30,29 @@ import { FeedPage } from '../pages/feed/feed';
 
 @NgModule({
   declarations: [ // toda página criada se não tiver o modulo é necessario estar listada aqui
-    MyApp,
-    AboutPage,
-    ContactPage,
+    MyApp,        
     HomePage,
-    TabsPage,
-    
-      
-    
-  
-  ],
+    TabsPage
+   
+    ],
   imports: [ // necessario listar os módulos aqui
     BrowserModule,
     IonicModule.forRoot(MyApp),    
     IntroPageModule,
     HttpModule ,
-    FeedPageModule
+    FeedPageModule,
+    SobrePageModule,
+    PerfilPageModule,
+    ConfiguracoesPageModule      
             
     
     ],
   bootstrap: [IonicApp], // toda página criada se não tiver o modulo é necessario estar listada aqui
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
+    MyApp,  
     HomePage,
     TabsPage,
+    ConfiguracoesPage
     
     
     
