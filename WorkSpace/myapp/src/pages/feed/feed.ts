@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { MoovieProvider } from '../../providers/moovie/moovie';
 
 /**
@@ -30,28 +30,44 @@ export class FeedPage {
 
 
   public nome_usuario: string = "dario franca do código";
+  public loader;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private movieProvider: MoovieProvider 
+    private movieProvider: MoovieProvider, 
+    public loadingCtrl: LoadingController
   ) {
 
+  }
+
+  abreCarregando() {
+    this.loader = this.loadingCtrl.create({
+      content: "Carregando filmes..."
+    });
+    this.loader.present();
+  }
+
+  fechaCarregando(){
+    this.loader.dismiss();
   }
 
   public somaDoisNumeros(num1: number, num2: number): void {
     // alert(num1+num2);
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() { // "ionViewDidEnter" sempre que entrar na pagina carega a lista de filmes
+    this.abreCarregando();
     this.movieProvider.getLatestMovies().subscribe(
       data=> {
         const response = (data as any)
         const objeto_retorno = JSON.parse(response._body) // body retorna page
         this.lista_filmes = objeto_retorno.results // já faz com que seja carregada a lista de filmes, pq results na documentação é a lista de filmes no json
         console.log(objeto_retorno);
+        this.fechaCarregando();
       }, error => {
         console.log(error);
+        this.fechaCarregando();
       }
       
     )
