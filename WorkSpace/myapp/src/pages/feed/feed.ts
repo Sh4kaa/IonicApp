@@ -28,12 +28,14 @@ export class FeedPage {
     time_comment: "11h ago"
   }
   public lista_filmes = new Array<any>(); // objeto do tipo javascript
+  public page = 1;
 
 
   public nome_usuario: string = "dario franca do código";
   public loader;
   public refresher;
   public isRefreshing: boolean = false;
+  public infiniteScroll;
 
   constructor(
     public navCtrl: NavController,
@@ -43,7 +45,7 @@ export class FeedPage {
   ) {
 
   }
-    // popup de caregamento da página
+  // popup de caregamento da página
   abreCarregando() {
     this.loader = this.loadingCtrl.create({
       content: "Carregando filmes..."
@@ -70,33 +72,48 @@ export class FeedPage {
     this.carregarFilmes();
   }
 
-    abrirDetalhes(filme){
-      console.log(filme);
-      this.navCtrl.push(FilmeDetalhesPage,{id: filme.id});
-    }
+  abrirDetalhes(filme) {
+    console.log(filme);
+    this.navCtrl.push(FilmeDetalhesPage, { id: filme.id });
+  }
+  //infiniti scroll
+  doInfinite(infiniteScroll) {
+    this.page++;
+    this.infiniteScroll = infiniteScroll;
+    this.carregarFilmes(true);
+    
+  }
 
-  carregarFilmes(){
+  carregarFilmes(newpage: boolean = false) {
     this.abreCarregando();
-    this.movieProvider.getLatestMovies().subscribe(
+    this.movieProvider.getLatestMovies(this.page).subscribe(
       data => {
         const response = (data as any)
         const objeto_retorno = JSON.parse(response._body) // body retorna page
-        this.lista_filmes = objeto_retorno.results // já faz com que seja carregada a lista de filmes, pq results na documentação é a lista de filmes no json
-        console.log(objeto_retorno);
-        
+        if (newpage) {
+          this.lista_filmes = this.lista_filmes.concat(objeto_retorno.results);
+          console.log(this.page);
+          console.log(this.lista_filmes);
+          this.infiniteScroll.complete();
+        } else {
+          this.lista_filmes = objeto_retorno.results // já faz com que seja carregada a lista de filmes, pq results na documentação é a lista de filmes no json
+        }
+
+
+
         this.fechaCarregando();
-        if(this.isRefreshing){
+        if (this.isRefreshing) {
           this.refresher.complete();
           this.isRefreshing = false;
         }
       }, error => {
         console.log(error);
-        
-        
+
+
         this.fechaCarregando();
-          if(this.isRefreshing){
-              this.refresher.complete();
-              this.isRefreshing = false;
+        if (this.isRefreshing) {
+          this.refresher.complete();
+          this.isRefreshing = false;
         }
       }
 
