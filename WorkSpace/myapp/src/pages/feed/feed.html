@@ -14,8 +14,13 @@
 
 
 <ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-  <ion-card *ngFor="let filme of lista_filmes"> <!-- o "*" significa diretiva estrutural-->
+
+  <ion-card *ngFor="let filme of lista_filmes">
+    <!-- o "*" significa diretiva estrutural-->
 
     <ion-item>
       <ion-avatar item-start>

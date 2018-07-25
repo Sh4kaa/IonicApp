@@ -31,11 +31,13 @@ export class FeedPage {
 
   public nome_usuario: string = "dario franca do código";
   public loader;
+  public refresher;
+  public isRefreshing: boolean = false;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private movieProvider: MoovieProvider, 
+    private movieProvider: MoovieProvider,
     public loadingCtrl: LoadingController
   ) {
 
@@ -48,28 +50,49 @@ export class FeedPage {
     this.loader.present();
   }
 
-  fechaCarregando(){
+  fechaCarregando() {
     this.loader.dismiss();
   }
 
   public somaDoisNumeros(num1: number, num2: number): void {
     // alert(num1+num2);
   }
+  // refresh de página
+  doRefresh(refresher) {
+    this.refresher = refresher;
+    this.isRefreshing = true;
+    this.carregarFilmes();
 
+  }
+  // o que vai carregar a página
   ionViewDidEnter() { // "ionViewDidEnter" sempre que entrar na pagina carega a lista de filmes
+    this.carregarFilmes();
+  }
+  carregarFilmes(){
     this.abreCarregando();
     this.movieProvider.getLatestMovies().subscribe(
-      data=> {
+      data => {
         const response = (data as any)
         const objeto_retorno = JSON.parse(response._body) // body retorna page
         this.lista_filmes = objeto_retorno.results // já faz com que seja carregada a lista de filmes, pq results na documentação é a lista de filmes no json
         console.log(objeto_retorno);
+        
         this.fechaCarregando();
+        if(this.isRefreshing){
+          this.refresher.complete();
+          this.isRefreshing = false;
+        }
       }, error => {
         console.log(error);
+        
+        
         this.fechaCarregando();
+          if(this.isRefreshing){
+              this.refresher.complete();
+              this.isRefreshing = false;
+        }
       }
-      
+
     )
   }
 
