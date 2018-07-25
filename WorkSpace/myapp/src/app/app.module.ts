@@ -16,6 +16,7 @@ import { SobrePageModule } from '../pages/sobre/sobre.module';
 import { PerfilPageModule } from '../pages/perfil/perfil.module';
 import { ConfiguracoesPageModule } from '../pages/configuracoes/configuracoes.module';
 import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
+import { FilmeDetalhesPageModule } from '../pages/filme-detalhes/filme-detalhes.module';
 
 
 
@@ -41,7 +42,8 @@ import { ConfiguracoesPage } from '../pages/configuracoes/configuracoes';
     FeedPageModule,
     SobrePageModule,
     PerfilPageModule,
-    ConfiguracoesPageModule      
+    ConfiguracoesPageModule,
+    FilmeDetalhesPageModule      
             
     
     ],

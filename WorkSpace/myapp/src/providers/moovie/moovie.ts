@@ -20,4 +20,8 @@ export class MoovieProvider {
     return this.http.get( this.baseApiPath + "/movie/now_playing?api_key=17bdc4010e227c1eebd421e14d233524");
   }
 
+  getMovietDetails(filmeid) {
+    return this.http.get( this.baseApiPath + `/movie/${filmeid}?api_key=17bdc4010e227c1eebd421e14d233524`);
+  }
+
 }
